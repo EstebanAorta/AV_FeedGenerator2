@@ -11,14 +11,17 @@ class Field implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            ['value' => 'product_url', 'label' => __('Product URL')],
-            ['value' => 'product_title', 'label' => __('Product Title')],
-            ['value' => 'product_description', 'label' => __('Product Description')],
+            ['value' => 'link', 'label' => __('Product URL')],
+            ['value' => 'title', 'label' => __('Product Title')],
+            ['value' => 'description', 'label' => __('Product Description')],
             ['value' => 'price', 'label' => __('Price inkl. Tax')],
-            ['value' => 'sku', 'label' => __('SKU')],
-            ['value' => 'product_image', 'label' => __('Product Image')],
+            ['value' => 'id', 'label' => __('SKU')],
+            ['value' => 'image_link', 'label' => __('Product Image')],
             ['value' => 'product_category', 'label' => __('Product Category')],
-            ['value' => 'delivery_cost', 'label' => __('Delivery Cost')]
+            ['value' => 'delivery_cost', 'label' => __('Delivery Cost')],
+            ['value' => 'brand', 'label' => __('Brand')],
+            ['value' => 'availability', 'label' => __('In Stock')],
+            ['value' => 'condition', 'label' => __('Condition')]
         ];
     }
 }

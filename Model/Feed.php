@@ -112,6 +112,7 @@ class Feed
         }
     }
 
+
     /*
     *  Get every product and filter the collection
     */
@@ -163,22 +164,22 @@ class Feed
 
             foreach ($_columns as $_column) {
                 switch ($_column) {
-                    case 'product_url':
+                    case 'link':
                         $data[] = $product->getProductUrl();
                         break;
-                    case 'product_title':
+                    case 'title':
                         $data[] = $product->getName();
                         break;
-                    case 'product_description':
+                    case 'description':
                         $data[] = strip_tags($product->getDescription());
                         break;
                     case 'price':
                         $data[] = $product->getPriceInfo()->getPrice('final_price')->getValue() . ' ' . $this->getCurrency();
                         break;
-                    case 'sku':
+                    case 'id':
                         $data[] = $product->getSku();
                         break;
-                    case 'product_image':
+                    case 'image_link':
                         $data[] = $this->getMediaUrl() . 'catalog/product' . $product->getImage();
                         break;
                     case 'product_category':
@@ -191,6 +192,15 @@ class Feed
                     case 'delivery_cost':
                         $data[] = $this->getDeliveryCost();
                         break;
+                    case 'brand':
+			$data[] = $product->getBrand();
+			break;
+                    case 'availability':
+			$data[] = $product->getAttributeText('quantity_and_stock_status');
+			break;
+                    case 'condition':
+			$data[] = $product->getAttributeText('condition');
+			break;
                 }
             }
             $csvdata[] = $data;
